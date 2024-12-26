@@ -1,0 +1,46 @@
+<html>
+    <head>
+    <title>creating a form</title>
+        <script>
+            function validateForm(){
+                var email=document.forms["myForm"]["email"].value;
+                var mobile=document.forms["myForm"]["mobile"].value;
+                var name=document.forms["myForm"]["name"].value;
+                var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                var mobileRegex =/^[0-9]{10}$/;
+                
+    
+    
+                if(name == ""){
+                    alert("name must be filled out");
+                    return false;
+                }
+                if(!emailRegex.test(email)){
+                    alert("Invalid email format");
+                    return false;
+                }
+                if(!mobileRegex.test(mobile)){
+                    alert("Number must contain 10 digits");
+                    return false;
+                }
+    
+    
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myForm" onsubmit="return validateForm()" method="post">
+            name= <input type="text" name="name"><br><br>
+            email= <input type="text" name="email"><br><br>
+            mobile= <input type="text" name="mobile"><br><br>
+            Gender:
+            <input type="radio" name="gender" value="Male">Male<br><br>
+            <input type="radio" name="gender" value="Female">Female<br><br>
+            Hobbies:
+            <input type="checkbox" name="hobby 1" value="Walking">Walking<br><br>
+            <input type="checkbox" name="hobby 2" value="Jumping">Jumping<br><br>
+            <input type="submit" value="Submit">
+        </form>
+        
+    </body>
+    </html>
